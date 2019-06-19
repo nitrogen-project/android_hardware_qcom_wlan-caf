@@ -38,7 +38,10 @@ LOCAL_C_INCLUDES += \
 	$(call include-path-for, libhardware_legacy)/hardware_legacy \
 	external/wpa_supplicant_8/src/drivers \
 	$(TARGET_OUT_HEADERS)/libwpa_client \
+	$(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr/include \
 	$(TARGET_OUT_HEADERS)/cld80211-lib
+
+LOCAL_ADDITIONAL_DEPENDENCIES += $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr
 
 LOCAL_SRC_FILES := \
 	wifi_hal.cpp \
@@ -78,7 +81,6 @@ LOCAL_C_INCLUDES += external/libnl-headers
 endif
 
 LOCAL_HEADER_LIBRARIES := libcutils_headers libutils_headers
-LOCAL_HEADER_LIBRARIES += generated_kernel_headers
 
 include $(BUILD_STATIC_LIBRARY)
 
@@ -105,7 +107,10 @@ LOCAL_C_INCLUDES += \
 	$(call include-path-for, libhardware_legacy)/hardware_legacy \
 	external/wpa_supplicant_8/src/drivers \
 	$(TARGET_OUT_HEADERS)/libwpa_client \
+	$(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr/include \
 	$(TARGET_OUT_HEADERS)/cld80211-lib
+
+LOCAL_ADDITIONAL_DEPENDENCIES += $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr
 
 LOCAL_SRC_FILES := \
 	wifi_hal.cpp \
@@ -147,6 +152,4 @@ LOCAL_C_INCLUDES += external/libnl-headers
 endif
 
 LOCAL_HEADER_LIBRARIES := libcutils_headers libutils_headers
-LOCAL_HEADER_LIBRARIES += generated_kernel_headers
-
 include $(BUILD_SHARED_LIBRARY)
